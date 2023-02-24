@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.body{
+    background-color:white;
+}
+
+.loc-header {
+    background-image: linear-gradient(
+     to bottom,
+     #63d471 0%,
+     #345240 100%
+   );
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    font-weight: 600;
+    height: 4 rem;
+    z-index: 1000000;
+    padding: 1rem;
+    color: white;
+ }
+
+ .ptcl-logo p{
+    text-transform:uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 1.25rem;
+ }
+
+ .loc-back i{
+     font-size: 1.5rem;
+     color: white;
+     transition: all 0.5s;
+     cursor: pointer;
+     padding: 10px;
+     border-radius: 7px;
+ }
+
+ .loc-back i:hover{
+    transform: translateX(-3px);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.img1 {
+    width: 4.5rem;
+    height: 2rem;
+  }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:transparent  ;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(73, 73, 241);
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: rgb(73, 73, 241,0.7);
+}
+
+.loc-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin:1rem ;
+  overflow: hidden;
+}
+
+
+#loc-select-region
+{
+  background-color:rgba(177, 171, 171, 0.1) ;
+  color:white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  color: black;
+  position: relative;
+  transition: all 0.5s;
+  width: 90vw;
+  outline: none;
+  height: 2.5rem;
+}
+.form-select:focus{
+    outline: none;
+}
+
+#loc-select-region:hover
+{
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+#loc-output{
+    height: 4rem;
+    background-color: #e6e6e6;
+
+}
+.card input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+

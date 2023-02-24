@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Locator</title>
+    <link rel="icon" type="image/icon" href="images/ptcl-logo.png">
+    <link rel="stylesheet" href="locatorstyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6e9ad2606d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+
+</head>
+
+
+    <body class="body">
+        
+        <div class="loc-header d-flex flex-row justify-content-between align-items-center">
+            <div class="loc-back" id="back-btn"> <i onclick="backWidget()" class="fa-solid fa-angle-left"></i></div>
+            <div class="ptcl-logo"><p class="m-0 fs-0">Exchange Locator</p></div>
+            <div class="widget-close"><img class="img1" src="images/ptcl-logo.png" alt="ptcl-logo"></div>
+        </div>
+
+        <div class="loc-container" id="loc-main">
+
+           <div class="left">
+
+            <select class="form-select shadow-sm" id="loc-select-region"  title="Select Region" data-style="btn-primary"   aria-label="Default selected" searchable="Search here..">
+              <option selected>Select Region</option>
+              <option name="LTN" value="LTN">LTN</option>
+              <option name="LTS" value="LTS">LTS</option>
+              <option name="GTR" value="GTR">GTR</option>
+              <option name="SLTR" value="SLTR">SLTR</option>
+              <option name="FTR" value="FTR">FTR</option>
+              <option name="MTR" value="MTR">MTR</option>
+              <option name="CTR" value="CTR">CTR</option>
+              <option name="ITR" value="ITR">ITR</option>
+              <option name="RTR" value="RTR">RTR</option>
+              <option name="AJK" value="AJK">AJK</option>
+              <option name="HTR" value="HTR">HTR</option>
+              <option name="NTR1" value="NTR1">NTR1</option>
+              <option name="NTR2" value="NTR2">NTR2</option>
+              <option name="KTR1" value="KTR1">KTR1</option>
+              <option name="KTR2" value="KTR2">KTR2</option>
+              <option name="HYTR" value="HYTR">HYTR</option>
+              <option name="STR" value="STR">STR</option>
+              <option name="QTR" value="QTR">QTR</option>
+
+            </select>
+
+            <div class="card p-2 shadow">
+                <div class="card-body p-4">
+                    <h4 class="mb-4">Nearby Locations</h4>
+                    <input class="form-control" id="addressFeild"/>
+                    <div class="form-control mt-4" id="loc-output"></div>
+                    <button class="btn btn-primary mt-2" onclick="reset()">Reset</button>
+                  
+                </div>
+            </div>
+           </div>
+        </div>
+        <script src="locatorscript.js"></script>
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/jquery-latest.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+    </body>
+
+
+
+</html>

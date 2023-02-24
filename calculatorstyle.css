@@ -1,0 +1,228 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.body{
+    background-color: white;
+    overflow: overlay;
+
+
+}
+
+.calc-header {
+    background-image: linear-gradient(
+     to bottom,
+     #63d471 0%,
+     #345240 100%
+   );
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    font-weight: 600;
+    height: 4 rem;
+    z-index: 1000000;
+    padding: 1rem;
+    color: white;
+ }
+
+ .ptcl-logo p{
+    text-transform:uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 1.25rem;
+ }
+
+ .calc-back i{
+     font-size: 1.5rem;
+     color: white;
+     transition: all 0.5s;
+     cursor: pointer;
+     padding: 10px;
+     border-radius: 7px;
+ }
+
+ .calc-back i:hover{
+    transform: translateX(-3px);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.img1 {
+    width: 4.5rem;
+    height: 2rem;
+  }
+
+::-webkit-scrollbar {
+  width: 5px;
+  z-index: -111;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:transparent  ;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(73, 73, 241);
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  
+  background: rgb(73, 73, 241,0.7);
+}
+
+.cal-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  height: 85vh;
+  overflow: hidden;
+  background-color: white;
+  padding: 1rem;
+}
+
+
+#cal-select-region
+{
+  background-color:rgba(0, 0, 0, 0.1) ;
+  color:white;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  position: relative;
+  transition: all 0.5s;
+  width: 20rem;
+  outline: none;
+  height: 2.3rem;
+}
+
+#cal-select-region:hover
+{
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+
+#cal-select-date
+{
+  background-color:rgba(0, 0, 0, 0.1) ;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  position: relative;
+  transition: all 0.5s;
+  width: 20rem;
+  height: 2.3rem;
+  outline: none;
+}
+
+#cal-select-date:hover
+{
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+
+
+.cal-container .table
+{
+  width: 100%; 
+  border-collapse: collapse; 
+  font-size: 0.65rem;
+
+}
+
+.cal-container .table td{
+  padding: 0.2rem;
+}
+
+
+.right-btn{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.play-input{
+  background: none;
+  border: none;
+  outline: none;
+  width: 6rem;
+  padding-left: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+
+.left{
+  width: 90%;
+  height: 30rem;
+}
+
+.right{
+  overflow: auto;
+  height: 28rem;
+  width: 100%;
+}
+
+
+@media screen and (max-width:900px) {
+  
+
+  .cal-container{
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+
+  }
+  .cal-container .table{
+    font-size: 0.70rem;
+  }
+  .left{
+    width: 90vw;
+    height: auto;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  .left .selects{
+    display: flex; 
+    justify-content: space-around;
+    gap:1rem;
+  
+  }
+  .left .formulas{
+    margin-top: 1rem;
+  }
+  .right{
+    width: 90vw;
+    height: 25rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #cal-select-region, #cal-select-date {
+    font-size: 1rem;
+  }
+
+  
+}
+

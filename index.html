@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/6e9ad2606d.js" crossorigin="anonymous"></script> 
+    <link rel = "icon" href = "images/ptcl-logo-title.png" type = "image/x-icon">
+    <title>PTCL TND</title>
+
+  <body>
+
+    <h1 style="margin: 10rem; background-color: rgba(0, 0, 255, 0.753); padding: 2rem;">This will be the main page of the official website.</h1>
+    
+    <!-- div having the pop up button and i frame responsible for the widget -->
+    <div class="widget-btn btn-animation" id=" widgetbtn">
+      <i onclick="showWidget()" id="icon" class="fa-solid fa-message pul"></i>
+      <div class="widgetPop" id="widgetFrame">
+        
+        <!-- the iframe having the widget chatbot  -->
+        <iframe
+        src="widget.html"
+        id="widget"
+        class="widget-size"
+        frameborder="none"  
+        allowfullscreen = ""></iframe>  
+        
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+ 
+  </body>
+
+</html>

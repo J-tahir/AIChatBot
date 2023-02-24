@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Data Query</title>
+    <link rel="icon" type="image/icon" href="images/ptcl-logo.png">
+    <link rel="stylesheet" href="bigdatastyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6e9ad2606d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+
+</head>
+
+
+    <body class="body">
+        
+        <div class="bdq-header d-flex flex-row justify-content-between align-items-center">
+            <div class="bdq-back" id="back-btn"> <i onclick="backWidget()" class="fa-solid fa-angle-left"></i></div>
+            <div class="ptcl-logo"><p class="m-0 ms-5">Big Data Query</p></div>
+            <div class="widget-close"><img class="img1" src="images/ptcl-logo.png" alt="ptcl-logo"></div>
+        </div>
+
+        <div class="bdq-container" id="bdq-main">
+
+            <div class="card p-2 shadow">
+                <div class="card-body p-4">
+                    <input class="form-control" id="quertField"/>
+                    <div id="resultField"></div>
+                    <button class="btn btn-primary mt-2" onclick="reset()">Reset</button>
+                  
+                </div>
+            </div>
+        </div>
+        <script src="bigdatascript.js"></script>
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/jquery-latest.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+    </body>
+
+
+
+</html>

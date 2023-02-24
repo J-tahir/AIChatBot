@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTCL Customers</title>
+    <link rel="icon" type="image/icon" href="images/ptcl-logo.png">
+    <link rel="stylesheet" href="widgetstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6e9ad2606d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+
+  <body style="overflow-x: hidden;">
+    <!-- section having widget items  -->
+      <section id="widgetSection" class="animation">
+
+      <div class="container p-3">
+        
+    <div class="close"><i onclick="hideWidget()" class="fa-solid fa-xmark"></i></div>
+        <div class="main-header mb-5 mt-4" id="header">
+          <img src="images/ptcl-logo.png" alt="PTCL" style="width: 100px" />
+          <h1 class="text-white">Hi &#x1F44B;</h1>
+          <p class="text-white">
+            We help you grow your business by connecting to our customer service
+          </p>
+        </div>
+  
+        <div class="card mb-3 p-2">
+          
+          <div class="card-body">
+            <h5 class="card-title mb-4">Start a Conversation</h5>
+            
+            <div class="card-content d-flex justify-content-start gap-2">
+              
+              <div class="align-content-center">
+                <img class="img1" src="images/user-icon.png" alt="User Icon" />
+              </div>
+              
+              <div class="m-auto fs-0 flex-grow-1">
+                <p class="card-subtitle text-muted text-nowrap">Our usual reply time</p>
+                <p class="m-0">
+                  <i class="fa-regular fa-clock" style="color: blue"></i>  
+                  A few minutes
+                </p>
+              </div>
+            
+            </div>
+            
+            <a id="chatButton" href="#" type="button" class="btn btn-primary rounded-pill mt-4 pe-4 fw-bold">
+              <i   class="fa-solid fa-paper-plane me-2"></i>
+              Click To Start
+            </a>
+          
+          </div>
+        </div>
+        
+        <div class="card mb-3 p-2">
+          
+          <div class="card-body">
+            <h5 class="card-title mb-4">Bill Calculator</h5>
+            
+            <div class="card-content d-flex justify-content-start align-items-center gap-4">
+              
+              <div class="justify-content-center align-content-center ms-2">
+                <i class="fa-solid fa-calculator fa-2x text-success"></i>
+              </div>
+              
+              <div class="fs-0">
+                <p class="m-0">Calculate Your Bill Now</p>
+                <a id="calculator-btn" class="m-0 text-primary"  >Open Calculator</a>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 p-2">
+          
+          <div class="card-body">
+            <h5 class="card-title mb-4">Exchange Locator</h5>
+            
+            <div class="card-content d-flex justify-content-start align-items-center gap-4">
+<!--               
+              <div class="justify-content-center align-content-center ms-2">
+                <i class="fa-solid fa-map-location-dot fa-2x text-success"></i>
+              </div> -->
+              
+              <div class="fs-0">
+                <a id="locator-btn" type="button" class="btn btn-primary rounded-pill pe-4 ps-4 fw-bold fs-0">
+                  <i class="fa-solid fa-location-dot fs-0 me-2"></i>Locate Us
+                </a>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 p-2">
+          
+          <div class="card-body">
+            <h5 class="card-title mb-4">Big Data Query</h5>
+            
+            <div class="card-content d-flex justify-content-start align-items-center gap-4">
+              
+              <!-- <div class="justify-content-center align-content-center ms-2">
+                <i class="fa-solid fa-clipboard-question fa-2x text-success"></i>
+              </div> -->
+
+              <div class="fs-0">
+                <a id="bdq-btn" type="button" class="btn btn-primary rounded-pill pe-3 fw-bold fs-0">
+                  <i class="fa-solid fa-signal text-white me-1"></i>Check Status</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 p-2">
+          
+          <div class="card-body">
+            <h5 class="card-title mb-4">Frequently Asked Questions</h5>
+            
+            <div class="card-content d-flex justify-content-start align-items-center gap-2">
+              <div class="fs-0">
+                <a id="faqs-btn" type="button" class="btn btn-primary rounded-pill pe-4 ps-4 fw-bold fs-0">                
+                  <i class="fa-solid fa-circle-question text-white me-1"></i> Open FAQs</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+
+    <!-- section for chatbot/chatsection -->
+    <section class="chatBot transitionClass ">
+    
+      <div class="chat-header" id="chatHeader">   
+        
+        <div class="d-flex flex-row justify-content-between p-3 text-white"> 
+            <i onclick="backtoWidget()" class="fas fa-chevron-left fs-3 mt-2"></i>
+            <span class="text-center mt-2 text-uppercase fs-5" style="letter-spacing: 0.15rem;" >Knowledge Base</span> 
+            <span class="text-center mt-1 fs-5 "><img src="images/ptcl-logo.png" alt="" width="70px" height="30px"></span> 
+        </div>
+  
+      </div>
+  
+  
+    <div class="chat-body d-flex flex-column justify-content-end">
+      
+      <div class="card chat-card p-0">
+      </div>
+  
+  
+      <div class="form-group d-flex m-1"> 
+        <div class="flex-grow-1">
+          <textarea id="textArea" class="form-control  flex-fill z-depth-1 p-2 shadow-none "  rows = "1" placeholder="Type your message" required></textarea>
+        </div>
+        
+        <div type = "button"  class = "send-btn m-auto fs-1 pe-2">
+            <i type="submit" id="send-btn" class="fa-solid fa-paper-plane pe-2 ps-2"></i>
+        </div>
+      </div>
+    
+    </div>
+    
+    </section>
+
+    
+
+
+    <script src="widgetscript.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.widgetPop {
+  visibility: hidden;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode:backwards;
+  animation-fill-mode: backwards;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+
+  }
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  
+}
+.hide{
+  visibility: hidden;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+@-webkit-keyframes fadeOut {
+0% {opacity: 1;}
+100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+0% {opacity: 1;}
+100% {opacity: 0;}
+}
+
+.fadeOut {
+
+-webkit-animation-name: fadeOut;
+animation-name: fadeOut;
+}
+
+
+#widget{
+  position: absolute;
+  bottom: 3.5rem;
+  right: 1rem;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  border: 2px ridge rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  
+}
+.widget-size{
+  width: 25rem;
+  height: 85vh;
+}
+
+.cal-size{
+  width: 60rem;
+  height: 85vh;
+}
+.loc-size{
+  width: 40rem;
+  height: 85vh;
+}
+.bdq-size{
+  width: 40rem;
+  height: 85vh;
+}
+
+.faqs-size{
+  width: 40rem;
+  height: 85vh;
+}
+
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 3000ms;
+}
+
+.widget-btn {
+  display: flex;
+  position: absolute;
+  float: right;
+  bottom: 1rem;
+  right: 1rem;
+  background: linear-gradient(to right,rgba(139, 184, 39, 1) 0%,rgba(0, 125, 66, 1) 100%);
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.visibility {
+ display:none;
+}
+
+#icon {
+  cursor: pointer;
+  color: white;
+  transition:all 0.8s;
+  font-size: 25px;
+}
+
+#icon:hover{
+
+  transform: translateY(-0.25rem);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+@media screen and (max-width:600px) {
+  
+    #widget{
+      border: none;
+      border-radius: 0;
+      bottom: -1rem;
+      right: -2rem;
+      width: 100vw;
+      height:100vh;
+    }
+    
+  
+}
+
+@media screen and (max-width:1000px) {
+  
+  .cal-size
+  {
+    width: 85vw;
+    height: 85vh
+  }
+}
+
+
+
+
+
+
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 -20px green; }
+  40% { box-shadow: 0 0 20px green; }
+  60% { box-shadow: 0 0 20px green; }
+  100% { box-shadow: 0 0 -20px green; }
+}
+
+@keyframes pulse{
+  0% { transform: translateY(0px);}
+  50% { transform: translateY(-5px);}
+  100% {transform: translateY(0px);}
+}
+
+.pul{
+  animation: pulse 2000ms infinite;
+}
+
+.btn-animation{
+  animation: glowing 2000ms infinite;
+}
+
+#widget{
+  transition: width 800ms;
+}

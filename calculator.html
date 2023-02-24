@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <link rel="icon" type="image/icon" href="images/ptcl-logo.png">
+    <link rel="stylesheet" href="calculatorstyle.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6e9ad2606d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+
+    <body class="body">
+        
+        <div class="calc-header d-flex flex-row justify-content-between align-items-center">
+            <div class="calc-back" id="back-btn"> <i onclick="backWidget()" class="fa-solid fa-angle-left"></i></div>
+            <div class="ptcl-logo"><p class="m-0 ms-5">Bill Calculator</p></div>
+            <div class="widget-close"><img class="img1" src="images/ptcl-logo.png" alt="ptcl-logo"></div>
+        </div>
+
+        <div class="cal-container" id="cal-main">
+
+           <div class="left">
+
+            <div class="selects">
+            <select class="form-select shadow-sm" id="cal-select-region" title="Select Region" data-style="btn-primary"   aria-label="Default selected">
+              <option selected>Select Region</option>
+              <option name="ISB" value="ISB">ISB</option>
+              <option name="PUNJAB" value="PUNJAB">PUNJAB</option>
+              <option name="SINDH" value="SINDH">SINDH</option>
+              <option name="BALOCHISTAN" value="BALOCHISTAN">BALOCHISTAN</option>
+              <option name="KPK" value="KPK">KPK</option>
+              <option name="AJK" value="AJK">AJK</option>
+              <option name="FATA" value="FATA">FATA</option>
+
+            </select>
+
+            <select class="form-select shadow-sm" id="cal-select-date" aria-label="Default selected">
+              <option selected>Select Date</option>
+              <option value="1-14 Jan">1-14 Jan, 2022</option>
+              <option value="after">After 15 Jan, 2022</option>
+            </select>
+          </div>
+            <div class="formulas">
+              <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="8" class="text-center text-white bg-primary"> Services TAX/FED</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Serivces</th>
+                    <th scope="col">ISB</th>
+                    <th scope="col">AJK</th>
+                    <th scope="col">Punjab</th>
+                    <th scope="col">Sindh</th>
+                    <th scope="col">KPK</th>
+                    <th scope="col">FATA</th>
+                    <th scope="col">Balochistan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PSTN Charges</td>
+                    <td>16%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                  </tr>
+                  <tr>
+                    <td>Internet Services(Wired & Wireless)</td>
+                    <td>16%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                    <td>19.50%</td>
+                  </tr>
+                  <tr>
+                    <td>Smart TV-Charges</td>
+                    <td>16%</td>
+                    <td>16%</td>
+                    <td>5%</td>
+                    <td>10%</td>
+                    <td>19.50%</td>
+                    <td>10%</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>PSTN Charges</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                    <td>17%</td>
+                  </tr>
+                </tbody>
+              
+              </table>
+            </div>
+
+            <div class="wht">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="text-center text-white bg-primary"> WHT/Advance Income Tax</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Internet Serivces (Wired & Wireless) [For All Regions]</td>
+                    <td>15% on the total of charges (MRC + Sales Tax)</td>
+                   
+                  </tr>
+                  <tr>
+                    <td>PSTN Bill all Charges [For All Regions]</td>
+                    <td>(Voice + IPTV + CPE) + FED on these services 
+                      <br> 10% if (MRC + GST - 1000)>0 
+                      <br> 10% of the amount exceeding Rs. 1000
+                    </td>
+                    
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+            </div>
+
+          </div>
+
+          <div class="right">
+
+            <div class="single-play mb-2 border p-2">
+              <h4 class="text-center">Single Play</h4>  
+              <div class="d-flex gap-1">
+              <table class="table table-bordered" id="sp-input">
+                <thead>
+                  <tr>
+                    <th class="text-center text-white bg-success"> PSTN Service</th>
+                    <th class="text-center text-white bg-success"> Charges</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PSTN Package</td>
+                    <td><input type="number" placeholder="0" name="c6" id="pstn" class="play-input" ></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>PSTN VAS</td>
+                    <td><input type="number" placeholder="0" name="c7" id="pstn-vas"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c8" id="pstn-chrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Voice Add-Ons/Bundles</td>
+                    <td><input type="number" placeholder="0" name="c9" id="pstn-voice"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Other Charges</td>
+                    <td><input type="number" placeholder="0" name="c10" id="otherchrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (Basic Fee Rs. 99)/Netflix</td>
+                    <td><input type="number" placeholder="0" name="c18"  id="smrttvnetflix"  class="play-input"></td>
+                
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-bordered" id="sp-result">
+                <thead>
+                  <tr>
+                    <th class="text-center text-white bg-success">Charges</th>
+                    <th class="text-center text-white bg-success">Aggerigate Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Landline Charges</td>
+                    <td id="e1" class="result-ouput"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Equipment</td>
+                    <td id="e4" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Installation Charges</td>
+                    <td id="e5" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (OTT)/Netflix</td>
+                    <td id="e6" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Service Tax/FED (Voice)</td>
+                    <td id="e7" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>GST (On Device Only)</td>
+                    <td id="e8" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>WHT (10%)</td>
+                    <td id="e11" class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Arrears(+,-)</td>
+                    <td class="result-ouput"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Payable Amount</td>
+                    <td id="entry" class="result-ouput"></td>
+                
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+            </div>
+            <div class="right-btn">
+              <button onclick="resetSingle()" class="btn btn-primary m-2" id="single-play-reset">Reset</button>
+            <button class="btn btn-primary m-2" id="single-play-cal">Calculate</button>
+            </div>
+            </div>
+
+            <div class="double-play mb-2 border p-2">
+              <h4 class="text-center">Double Play</h4>
+            <div class="d-flex gap-1">
+              <table class="table table-bordered" id="dp-input">
+                <thead>
+                  <tr>
+                    <th class="text-center text-white bg-success"> BB Service</th>
+                    <th class="text-center text-white bg-success"> Charges</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PSTN Package</td>
+                    <td><input type="number" placeholder="0" name="c6" id="d-pstn"  class="play-input"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>PSTN VAS</td>
+                    <td><input type="number" placeholder="0" name="c7" id="d-pstn-vas"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c8" id="d-pstn-chrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Voice Add-Ons/Bundles</td>
+                    <td><input type="number" placeholder="0" name="c9" id="d-pstn-voice" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Other Charges</td>
+                    <td><input type="number" placeholder="0" name="c10"  id="d-otherchrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Broadband Package</td>
+                    <td><input type="number" placeholder="0" name="c11" id="d-bbpkg"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Broadband VAS</td>
+                    <td><input type="number" placeholder="0"  name="c12" id="d-bbvas" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>BB Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c13" id="d-bbchrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (Basic Fee Rs. 99)/Netflix</td>
+                    <td><input type="number" placeholder="0" id="d-smrttvnetflix"  class="play-input"></td>
+                
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+              <table class="table table-bordered " id="dp-result">
+                <thead>
+                  <tr>
+                    <th class="text-center text-white bg-success">Charges</th>
+                    <th class="text-center text-white bg-success">Aggerigate Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Landline Charges</td>
+                    <td id="d1"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Broadband Charges</td>
+                    <td id="d2"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Equipment</td>
+                    <td id="d4"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Installation Charges</td>
+                    <td id="d5"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (OTT)/Netflix</td>
+                    <td id="d6"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Service Tax/FED (Voice)</td>
+                    <td id="d7"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">GST (On Device Only)</td>
+                    <td id="d8"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Service Tax/FED (BB)</td>
+                    <td id="d10"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Total Service Tax/FED</td>
+                    <td id="d-ts"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">WHT (10%)</td>
+                    <td id="d11"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">WHT (15%) On BB</td>
+                    <td id="d12"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">Total WHT</td>
+                    <td id="d-wht"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Arrears(+,-)</td>
+                    <td id="d-ar"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Payable Amount</td>
+                    <td id="dentry"></td>
+                
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+            </div>
+            <div class="right-btn">
+              <button onclick="resetDouble()" class="btn btn-primary m-2" id="double-play-reset">Reset</button>
+              <button class="btn btn-primary m-2" id="double-play-cal">Calculate</button>
+            </div>  
+          </div>
+
+            <div class="triple-play mb-2 border p-2">
+              <h4 class="text-center">Triple Play</h4>
+            <div class="d-flex gap-1">             
+              <table class="table table-bordered" id="tp-input">
+                
+                <thead>
+                  
+                  <tr>
+                    <th class="text-center text-white bg-success"> IPTV Service</th>
+                    <th class="text-center text-white bg-success"> Charges</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PSTN Package</td>
+                    <td><input type="number" placeholder="0" name="c6" id="t-pstn"  class="play-input"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>PSTN VAS</td>
+                    <td><input type="number" placeholder="0" name="c7" id="t-pstn-vas"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c8" id="t-pstn-chrgs"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>PSTN Voice Add-Ons/Bundles</td>
+                    <td><input type="number" placeholder="0" name="c9" id="t-pstn-voice"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Other Charges</td>
+                    <td><input type="number" placeholder="0" name="c10" id="t-otherchrgs"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Broadband Package</td>
+                    <td><input type="number" placeholder="0" name="c11" id="t-bbpkg"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Broadband VAS</td>
+                    <td><input type="number" placeholder="0" name="c12" id="t-bbvas"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>BB Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c13" id="t-bbchrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV/IPTV</td>
+                    <td><input type="number" placeholder="0" name="c14" id="t-smrttv"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>IPTV Installation Charges</td>
+                    <td><input type="number" placeholder="0" name="c15" id="t-iptvchrgs" class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>IPTV/OTT Additional Charges</td>
+                    <td><input type="number" placeholder="0" name="c16" id="t-ottadd"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Equipment (Set Top Box/Modem/Camera)</td>
+                    <td><input type="number" placeholder="0" name="c17" id="t-eqp"  class="play-input"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (Basic Fee Rs.99)/Netflix</td>
+                    <td><input type="number" placeholder="0" name="c18" id="t-smrttvnetflix" class="play-input"></td>
+                
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+              <table class="table table-bordered" id="tp-result">
+                <thead>
+                  <tr>
+                    <th class="text-center text-white bg-success">Charges</th>
+                    <th class="text-center text-white bg-success ">Aggerigate Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Landline Charges</td>
+                    <td id="t1"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Broadband Charges</td>
+                    <td id="t2"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>IPTV Charges</td>
+                    <td id="t3"></td>
+                   
+                  </tr>
+                  <tr>
+                    <td>Equipment</td>
+                    <td id="t4"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Installation Charges</td>
+                    <td id="t5"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Smart TV App (OTT)/Netflix</td>
+                    <td id="t6"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Service Tax/FED (Voice)</td>
+                    <td id="t7"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">GST (On Device Only)</td>
+                    <td id="t8"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Service Tax/FED (IPTV)</td>
+                    <td id="t9"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Service Tax/FED (BB)</td>
+                    <td id="t10"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-warning">Total Service Tax/FED</td>
+                    <td id="t-ts"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">WHT (10%)</td>
+                    <td id="t11"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">WHT (15%) On BB</td>
+                    <td id="t12"></td>
+                
+                  </tr>
+                  <tr>
+                    <td class="bg-info">Total WHT</td>
+                    <td id="t-wht"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Arrears(+,-)</td>
+                    <td id="t-ar"></td>
+                
+                  </tr>
+                  <tr>
+                    <td>Payable Amount</td>
+                    <td id="tentry"></td>
+                
+                  </tr>
+                  
+                </tbody>
+              
+              </table>  
+            </div>
+            <div class="right-btn">
+              <button onclick="resetTriple()" class="btn btn-primary m-2" id="triple-play-reset">Reset</button>
+              <button class="btn btn-primary m-2" id="triple-play-cal">Calculate</button>
+            </div>  
+          </div>
+            
+          </div>
+          
+        </div>
+
+<!--         
+        <section id="calc-plans" class="calc-plans transitionClass">   
+
+            <div class="plan-header mt-4 d-flex justify-content-start align-content-center">
+                <a style="cursor: pointer;"><i onclick="backToRegion()" class="fa-solid fa-arrow-left-long fa-2x text-success"></i></a>
+                <h4 class="text-success text-center flex-grow-1 m-0">Select Plan</h4>
+            </div>
+            
+            
+
+        <div id="plans" class="container d-flex flex-column p-2 mt-3 shadow">
+       
+                <button onclick="singlePlayPlan()" class="btn border-0 p-3 m-2">Single Play</button>
+                <button class="btn border-0 p-3 m-2">Double Play</button>
+                <button class="btn border-0 p-3 m-2">Triple Play</button>
+        </div>
+
+        </section>
+
+        <section id="single-play-main" class="single-play-main transitionClass">
+            <div>PSTN Service</div>
+            <form>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
+                </div>
+              </form>
+
+        </section>
+
+        <section id="single-play-secondary" class="single-play-secondary transitionClass"></section> -->
+
+
+
+        <script src="calculatorscript.js"></script>
+        <script src="js/jquery-3.2.1.slim.min.js"></script>
+        <script src="js/jquery-latest.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+    </body>
+
+
+
+</html>
